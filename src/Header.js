@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Header({ title, children }) {
+import Button from './Button';
+
+export default function Header({ title, children, onToggleTheme }) {
   return (
     <>
       <h1>{title}</h1>
+      <Button onClick={onToggleTheme}>
+        Mudar Tema
+      </Button>
       {children}
     </>
   );
 }
 
 Header.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  onToggleTheme: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  children: PropTypes.node,
 };
 
 Header.defaultProps = {
